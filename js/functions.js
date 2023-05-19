@@ -41,13 +41,7 @@ function createRequest(requestBodyString, requestSourceString = "", callback, up
 
 };
 
-// ****
-// Используйте функции-обёртки для предотвращения ошибок, связанных с неудачными попытками записи, отсутствием SessionStorage в браузере и дублированием кода.
 
-// JSON.stringify для преобразования объектов в JSON.
-// JSON.parse для преобразования JSON обратно в объект.
-
-//  Записать значение value в sessionStorage c ключом key
 function setItem(key, value) {
   try {
     return window.sessionStorage.setItem(key, value);

@@ -24,14 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Клик по кнопке "Получить код бронирования"
   const acceptinButton = document.querySelector(".acceptin-button");
   acceptinButton?.addEventListener("click", (event) => {
-    // Предполагается, что где-то на этом моменте произошла оплата билета
-    // и пора отправить на сервер обновленный конфиг занятых мест в зале
-
-    // В качестве тела POST запроса передайте строку вида event=sale_add&timestamp=${value1}&hallId=${value2}&seanceId=${value3}&hallConfiguration=${value4} Где
-    // timestamp - начало сеанса с учетом даты. Значение указывается в секундах. Подробнее про timestemp можно прочитать тут
-    // hallId - ID зала
-    // seanceId - ID сеанса
-    // hallConfiguration - Строка - html разметка которую следует взять со страницы hall.html внутри контейнера с классом conf-step__wrapper(см разметку).
+    
 
     const hallsConfigurationObj = getJSON("pre-config-halls-paid-seats"); // из JSON в объект
     const hallConfiguration = hallsConfigurationObj[ticketDetails.hallId];

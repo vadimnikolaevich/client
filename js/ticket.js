@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ticketInfoWrapper.insertAdjacentHTML("beforeend", textHtml);
 
-  // QR-код. Функционал находится в файле js/QRCreator.js.
-  // Источник: https://github.com/slesareva-gala/QR-Code
+ 
   const qrText = `
     Фильм: ${ticketDetails.filmName}
     Зал: ${ticketDetails.hallNameNumber}

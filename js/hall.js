@@ -1,17 +1,7 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Получение актуальной схемы посадочных мест на выбранный сеанс с учетом уже купленных билетов.
-  // В качестве тела POST запроса передайте строку вида event=get_hallConfig&timestamp=${value1}&hallId=${value2}&seanceId=${value3} Где
-
-  // timestamp - начало сеанса с учетом даты Значение указывается в секундах
-  // hallId - ID зала
-  // seanceId - ID сеанса
-
-  // Результат
-  // Строка - html разметка которую следует поместить на странице hall.html внутри контейнера с классом conf-step__wrapper(см разметку
-
-  // Попытка получить данные сеанса...
+  
   const dataOfTheSelectedSeance = getJSON("data-of-the-selected-seance");
 
   const timestamp = +dataOfTheSelectedSeance.seanceTimeStamp / 1000;
@@ -19,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const seanceId = dataOfTheSelectedSeance.seanceId;
   const requestBodyString = `event=get_hallConfig&timestamp=${timestamp}&hallId=${hallId}&seanceId=${seanceId}`;
 
-  // Формируем запрос на сервер (Передаем: 1. строка тела запроса, 2. строка с именем источника запроса для инфо в консоли, 3. какая функция будет вызвана после ответа сервера )
+  
   createRequest(requestBodyString, "HALL", updateHtmlHall);
 });
 
@@ -29,10 +19,7 @@ function updateHtmlHall(serverResponse) {
   // Попытка получить данные сеанса...
   const dataOfTheSelectedSeance = getJSON("data-of-the-selected-seance");
 
-  // Евгений Варламов — 20.04.2023 22:01
-  // При get_hallConfig  сервер может возвращать null
-  // Если сервер возвращает  null  это значит что в базе не нашлось ни одного проданного билета на данный сеанс.
-  // И следовательно конфигурацию зала следует брать из массива halls который вы получаете при команде update
+ 
   let configSelectedHall;
   let configHalls = getJSON("config-halls"); // получить и преобразовать из JSON в объект
   if (response !== null) {
